@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+        }
+        .stats {
+            margin-top: 20px;
+        }
+        .stat-box {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #888;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Word Counter</h1>
+    <textarea id="text" rows="10" cols="30" placeholder="Type or paste your text here..."></textarea>
+    <div class="stats">
+        <div class="stat-box" id="wordCount">Words: 0</div>
+        <div class="stat-box" id="charCount">Characters: 0</div>
+        <div class="stat-box" id="charCountNoSpaces">Characters (no spaces): 0</div>
+    </div>
+    <button id="countBtn">Count</button>
+    <button id="clearBtn">Clear</button>
+    <button id="copyBtn">Copy Stats</button>
+
+    <script>
+        const textArea = document.getElementById('text');
+        const wordCountBox = document.getElementById('wordCount');
+        const charCountBox = document.getElementById('charCount');
+        const charCountNoSpacesBox = document.getElementById('charCountNoSpaces');
+
+        document.getElementById('countBtn').onclick = function() {
+            const text = textArea.value;
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0).length;
+            const characters = text.length;
+            const charactersNoSpaces = text.replace(/\s/g, '').length;
+
+            wordCountBox.innerText = `Words: ${words}`;
+            charCountBox.innerText = `Characters: ${characters}`;
+            charCountNoSpacesBox.innerText = `Characters (no spaces): ${charactersNoSpaces}`;
+        };
+
+        document.getElementById('clearBtn').onclick = function() {
+            textArea.value = '';
+            wordCountBox.innerText = 'Words: 0';
+            charCountBox.innerText = 'Characters: 0';
+            charCountNoSpacesBox.innerText = 'Characters (no spaces): 0';
+        };
+
+        document.getElementById('copyBtn').onclick = function() {
+            const stats = `${wordCountBox.innerText}\n${charCountBox.innerText}\n${charCountNoSpacesBox.innerText}`;
+            navigator.clipboard.writeText(stats).then(() => {
+                alert('Stats copied to clipboard!');
+            });
+        };
+    </script>
+</body>
+</html>
