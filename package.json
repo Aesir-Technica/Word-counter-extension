@@ -1,0 +1,1 @@
+{"name": "word-counter-extension", "version": "1.0.0", "description": "A simple word counter extension.", "main": "index.js", "scripts": {"test": "echo 'Error: no test specified' && exit 1"}, "keywords": ["word", "counter", "extension"], "author": "Aesir-Technica", "license": "ISC"}
