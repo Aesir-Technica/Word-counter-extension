@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: #333; }
+        #word-count-display { font-size: 1.5em; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Word Counter</h1>
+    <textarea id="text-input" rows="10" cols="30" placeholder="Type or paste your text here..."></textarea>
+    <button id="count-button">Count Words</button>
+    <div id="word-count-display"></div>
+
+    <script>
+        document.getElementById('count-button').addEventListener('click', function() {
+            const text = document.getElementById('text-input').value;
+            const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+            document.getElementById('word-count-display').textContent = 'Word Count: ' + wordCount;
+        });
+    </script>
+</body>
+</html>
