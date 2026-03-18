@@ -1,0 +1,28 @@
+# Node.js
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# IDE files
+*.idea/
+*.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+
+# Build artifacts
+/dist/
+/build/
+*.tgz
+*.zip
+*.tar.gz
